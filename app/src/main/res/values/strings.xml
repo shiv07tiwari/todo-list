@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Attendance</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_subject">Add Subject</string>
+
+        <string-array name="priority_array">
+            <item>Urgent</item>
+            <item>Neutral</item>
+            <item>Relaxed</item>
+        </string-array>
+
+</resources>
