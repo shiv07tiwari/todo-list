@@ -26,13 +26,15 @@ public class DataContract {
         public static final String TASK_NAME = "task";
         public static final String TASK_PRIORITY = "priority";
         public static final String DEADLINE ="deadline" ;
+        public static final String DESCRIPTION = "description";
 
         public static final int URGENT =1;
         public static final int NEUTRAL =2;
         public static final int CHILL =3;
     }
-    public static Uri buildforonetodo(String index){
-        return CONTENT_URI.buildUpon().appendPath(index).build();
+    public static Uri buildforonetodo(int index){
+        String indexstr = String.valueOf(index);
+        return CONTENT_URI.buildUpon().appendPath(indexstr).build();
     }
     public static Uri buildReturnInsertUri(long id) {
         return ContentUris.withAppendedId(CONTENT_URI, id);

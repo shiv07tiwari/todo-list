@@ -28,11 +28,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shivansh.attendance.MainActivity" />
         </activity>
-        <provider
-            android:authorities="com.shivansh.attendance"
-            android:name=".DataProvider"
-            android:exported="false"/>
 
+        <provider
+            android:name=".DataProvider"
+            android:authorities="com.shivansh.attendance"
+            android:exported="false" />
+
+        <activity
+            android:name=".TodoDetail"
+            android:label="@string/title_activity_todo_detail"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shivansh.attendance.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

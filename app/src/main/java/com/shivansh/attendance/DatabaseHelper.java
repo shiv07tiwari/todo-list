@@ -20,10 +20,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
          final String SQL_CREATE_TABLE = "CREATE TABLE "+ DataContract.SubjectData.TABLE_NAME +" ("+
-                DataContract.SubjectData._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                DataContract.SubjectData._ID + " INTEGER PRIMARY KEY, "+
                 DataContract.SubjectData.TASK_NAME + " TEXT NOT NULL, "+
                 DataContract.SubjectData.TASK_PRIORITY + " INTEGER NOT NULL, "+
-                DataContract.SubjectData.DEADLINE + " STRING NOT NULL"+");";
+                DataContract.SubjectData.DEADLINE + " STRING NOT NULL, " +
+                DataContract.SubjectData.DESCRIPTION + " STRING NOT NULL"+");";
 
          sqLiteDatabase.execSQL(SQL_CREATE_TABLE);
 

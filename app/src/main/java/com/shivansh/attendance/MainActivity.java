@@ -1,6 +1,7 @@
 package com.shivansh.attendance;
 
 import android.app.Fragment;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +9,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,11 +56,9 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             getContentResolver().delete(DataContract.SubjectData.CONTENT_URI,null,null);
-            MainActivityFragment mainfragment = (MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
-            if(mainfragment!=null)
-            {
-                mainfragment.displayDatabaseInfo();
-                mainfragment.clearlist();
+            MainActivityFragment ff = (MainActivityFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
+            if ( ff!=null ) {
+                ff.displayDatabaseInfo();
             }
             Toast.makeText(this, "All items deleted !",Toast.LENGTH_LONG).show();
         }

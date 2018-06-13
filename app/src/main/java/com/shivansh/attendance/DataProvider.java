@@ -92,6 +92,7 @@ public class DataProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
+        getContext().getContentResolver().notifyChange(uri, null);
         return returnuri;
     }
 
@@ -108,9 +109,9 @@ public class DataProvider extends ContentProvider {
                 throw new UnsupportedOperationException("Unknowen URI : " + uri);
         }
         if(rowsdeleted!=0)
-            return rowsdeleted; //Dont judge, kuch add hoga :p
-        else
-            return 0;
+             getContext().getContentResolver().notifyChange(uri,null);
+
+        return rowsdeleted;
     }
 
     @Override

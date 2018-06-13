@@ -27,7 +27,9 @@ public class AddSubject extends AppCompatActivity {
     private EditText mTaskEditText;
     private String task;
     private String deadline;
+    private String description;
     private EditText mDeadlineEditText;
+    private EditText mDescription;
 
     /** EditText field to enter the pet's gender */
 
@@ -44,6 +46,7 @@ public class AddSubject extends AppCompatActivity {
 
         mTaskEditText = (EditText) findViewById(R.id.todo_task);
         mDeadlineEditText = (EditText) findViewById(R.id.todo_deadline);
+        mDescription = (EditText)findViewById(R.id.todo_description);
 
         Spinner mPriorityspinner = (Spinner) findViewById(R.id.priority_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -87,15 +90,18 @@ public class AddSubject extends AppCompatActivity {
         Editable deadedittable = mDeadlineEditText.getText();
         deadline = deadedittable.toString();
 
+        Editable desceditable = mDescription.getText();
+        description = desceditable.toString();
 
         ContentValues todovalues = new ContentValues();
         todovalues.put(DataContract.SubjectData.TASK_NAME, task);
         todovalues.put(DataContract.SubjectData.TASK_PRIORITY,mPriority);
         todovalues.put(DataContract.SubjectData.DEADLINE,deadline);
+        todovalues.put(DataContract.SubjectData.DESCRIPTION,description);
 
         Uri returnuri = getContentResolver().insert(DataContract.SubjectData.CONTENT_URI,todovalues);
         Log.e(LOG_TAG,"ID : "+ returnuri);
-        Toast.makeText(this, "ITEM added with new row uri :"+ returnuri ,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "ITEM ADDED : "+ description ,Toast.LENGTH_LONG).show();
 
     }
     @Override
